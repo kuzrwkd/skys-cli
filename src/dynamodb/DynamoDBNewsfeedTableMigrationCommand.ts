@@ -1,18 +1,18 @@
 import * as yargs from 'yargs';
 
-import { createNewsFeedTable, deleteNewsFeedTable } from '@/dynamodb/util/migration/newsFeedTable';
+import { createNewsfeedTable, deleteNewsfeedTable } from '@/dynamodb/schema/migration/newsFeedTable';
 
-export default class DynamoDBNewsFeedTableMigrationCommand implements yargs.CommandModule {
+export default class DynamoDBNewsfeedTableMigrationCommand implements yargs.CommandModule {
   command = 'migration:dynamodb:newsfeed';
   describe = 'use --up or --down option.';
 
   builder(args: yargs.Argv) {
     return args
       .option('up', {
-        describe: 'Create a NewsFeed table in dynamodb',
+        describe: 'Create a Newsfeed table in dynamodb',
       })
       .option('down', {
-        describe: 'Remove NewsFeed table from dynamodb',
+        describe: 'Remove Newsfeed table from dynamodb',
       })
       .conflicts('up', 'down');
   }
@@ -20,11 +20,11 @@ export default class DynamoDBNewsFeedTableMigrationCommand implements yargs.Comm
   async handler(args: yargs.Arguments) {
     try {
       if (args.up) {
-        await createNewsFeedTable();
+        await createNewsfeedTable();
         return;
       }
       if (args.down) {
-        await deleteNewsFeedTable();
+        await deleteNewsfeedTable();
         return;
       }
     } catch (err) {

@@ -1,6 +1,6 @@
 import * as yargs from 'yargs';
 
-import { createMediaTable, deleteMediaTable } from '@/dynamodb/util/migration/mediaTable';
+import { createMediaTable, deleteMediaTable } from '@/dynamodb/schema/migration/mediaTable';
 
 export default class DynamoDBMediaTableMigrationCommand implements yargs.CommandModule {
   command = 'migration:dynamodb:media';

@@ -1,6 +1,6 @@
 import * as yargs from 'yargs';
 
-import { mediaTableSeeder } from '@/dynamodb/util/seeder/mediaSeed';
+import { mediaTableSeeder } from '@/dynamodb/schema/seeder/mediaSeed';
 
 export default class DynamoDBMediaTableSeederCommand implements yargs.CommandModule {
   command = 'seeder:dynamodb:media';

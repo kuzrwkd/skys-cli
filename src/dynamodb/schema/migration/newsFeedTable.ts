@@ -7,7 +7,7 @@ import {
 import { dynamodbDocument } from '@kuzrwkd/skys-core/dynamodb';
 import logger from '@kuzrwkd/skys-core/logger';
 
-export const createNewsFeedTable = async () => {
+export const createNewsfeedTable = async () => {
   const command: CreateTableCommandInput = {
     TableName: process.env.NEWSFEED_TABLE_NAME,
     KeySchema: [
@@ -35,16 +35,16 @@ export const createNewsFeedTable = async () => {
       },
     ],
   };
-  logger.info('NewsFeedTable マイグレーション開始');
+  logger.info('NewsfeedTable マイグレーション開始');
   const result = dynamodbDocument.send(new CreateTableCommand(command));
-  logger.info('NewsFeedTable マイグレーション終了', result);
+  logger.info('NewsfeedTable マイグレーション終了', result);
 };
 
-export const deleteNewsFeedTable = async () => {
+export const deleteNewsfeedTable = async () => {
   const command: DeleteTableCommandInput = {
     TableName: process.env.NEWSFEED_TABLE_NAME,
   };
-  logger.info('NewsFeedTable テーブル削除開始');
+  logger.info('NewsfeedTable テーブル削除開始');
   const result = await dynamodbDocument.send(new DeleteTableCommand(command));
-  logger.info('NewsFeedTable テーブル削除終了', result);
+  logger.info('NewsfeedTable テーブル削除終了', result);
 };
