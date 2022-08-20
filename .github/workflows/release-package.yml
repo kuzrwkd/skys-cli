@@ -12,7 +12,11 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 12
+          registry-url: https://npm.pkg.github.com/
+          scope: '@kuzrwkd'
       - run: npm ci
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_PERSONAL_ACCESS_TOKEN }}
       - run: npm test
 
   publish-gpr:
@@ -27,7 +31,10 @@ jobs:
         with:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
+          scope: '@kuzrwkd'
       - run: npm ci
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_PERSONAL_ACCESS_TOKEN }}
       - run: npm run build
       - run: npm publish
         env:
