@@ -1,6 +1,7 @@
+import dynamodbUseCase, { IMediaTableUseCase } from '@kuzrwkd/skys-core/dynamodb';
 import * as yargs from 'yargs';
 
-import { mediaTableSeeder } from '@/dynamodb/schema/seeder/mediaSeed';
+const mediaTableUseCase = dynamodbUseCase.resolve<IMediaTableUseCase>('MediaTableUseCase');
 
 export default class DynamoDBMediaTableSeederCommand implements yargs.CommandModule {
   command = 'seeder:dynamodb:media';
@@ -11,6 +12,6 @@ export default class DynamoDBMediaTableSeederCommand implements yargs.CommandMod
   }
 
   async handler() {
-    await mediaTableSeeder();
+    await mediaTableUseCase.mediaTableSeeder();
   }
 }

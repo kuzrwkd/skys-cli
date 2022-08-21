@@ -1,6 +1,8 @@
+import dynamodbUseCase, { INewsfeedTableUseCase } from '@kuzrwkd/skys-core/dynamodb';
 import * as yargs from 'yargs';
 
-import { createNewsfeedTable, deleteNewsfeedTable } from '@/dynamodb/schema/migration/newsFeedTable';
+const newsfeedTableUseCase: INewsfeedTableUseCase =
+  dynamodbUseCase.resolve<INewsfeedTableUseCase>('NewsfeedTableUseCase');
 
 export default class DynamoDBNewsfeedTableMigrationCommand implements yargs.CommandModule {
   command = 'migration:dynamodb:newsfeed';
@@ -20,11 +22,11 @@ export default class DynamoDBNewsfeedTableMigrationCommand implements yargs.Comm
   async handler(args: yargs.Arguments) {
     try {
       if (args.up) {
-        await createNewsfeedTable();
+        await newsfeedTableUseCase.createNewsfeedTable();
         return;
       }
       if (args.down) {
-        await deleteNewsfeedTable();
+        await newsfeedTableUseCase.deleteNewsfeedTable();
         return;
       }
     } catch (err) {

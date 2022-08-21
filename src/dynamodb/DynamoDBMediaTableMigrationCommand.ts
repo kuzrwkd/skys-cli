@@ -1,6 +1,7 @@
+import dynamodbUseCase, { IMediaTableUseCase } from '@kuzrwkd/skys-core/dynamodb';
 import * as yargs from 'yargs';
 
-import { createMediaTable, deleteMediaTable } from '@/dynamodb/schema/migration/mediaTable';
+const mediaTableUseCase = dynamodbUseCase.resolve<IMediaTableUseCase>('MediaTableUseCase');
 
 export default class DynamoDBMediaTableMigrationCommand implements yargs.CommandModule {
   command = 'migration:dynamodb:media';
@@ -20,11 +21,11 @@ export default class DynamoDBMediaTableMigrationCommand implements yargs.Command
   async handler(args: yargs.Arguments) {
     try {
       if (args.up) {
-        await createMediaTable();
+        await mediaTableUseCase.createMediaTable();
         return;
       }
       if (args.down) {
-        await deleteMediaTable();
+        await mediaTableUseCase.deleteMediaTable();
         return;
       }
     } catch (err) {
