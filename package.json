@@ -1,6 +1,6 @@
 {
   "name": "@kuzrwkd/skys-cli",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "",
   "files": [
     "bin"
@@ -26,8 +26,7 @@
   },
   "homepage": "https://github.com/kuzrwkd/skys-cli#readme",
   "dependencies": {
-    "@kuzrwkd/skys-core": "^1.0.52",
-    "reflect-metadata": "^0.1.13",
+    "@kuzrwkd/skys-core": "^1.0.54",
     "yargs": "^17.5.1"
   },
   "devDependencies": {

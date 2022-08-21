@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
-import 'reflect-metadata';
 import yargs from 'yargs';
 
+import DynamoDBCrawlerIndexTableMigrationCommand from '@/dynamodb/DynamoDBCrawlerIndexTableMigrationCommand';
+import DynamoDBCrawlerIndexTableSeederCommand from '@/dynamodb/DynamoDBCrawlerIndexTableSeederCommand';
 import DynamoDBMediaTableMigrationCommand from '@/dynamodb/DynamoDBMediaTableMigrationCommand';
 import DynamoDBMediaTableSeederCommand from '@/dynamodb/DynamoDBMediaTableSeederCommand';
 import DynamoDBNewsfeedTableMigrationCommand from '@/dynamodb/DynamoDBNewsfeedTableMigrationCommand';
@@ -13,6 +14,8 @@ yargs
   .command(new DynamoDBMediaTableMigrationCommand())
   .command(new DynamoDBNewsfeedTableMigrationCommand())
   .command(new DynamoDBMediaTableSeederCommand())
+  .command(new DynamoDBCrawlerIndexTableMigrationCommand())
+  .command(new DynamoDBCrawlerIndexTableSeederCommand())
   .recommendCommands()
   .demandCommand(1)
   .strict()
