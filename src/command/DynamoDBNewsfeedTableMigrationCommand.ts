@@ -11,10 +11,10 @@ export default class DynamoDBNewsfeedTableMigrationCommand implements yargs.Comm
   builder(args: yargs.Argv) {
     return args
       .option('up', {
-        describe: 'Create a Newsfeed table in dynamodb',
+        describe: 'Create a Newsfeed table in command',
       })
       .option('down', {
-        describe: 'Remove Newsfeed table from dynamodb',
+        describe: 'Remove Newsfeed table from command',
       })
       .conflicts('up', 'down');
   }

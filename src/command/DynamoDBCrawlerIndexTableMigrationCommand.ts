@@ -10,10 +10,10 @@ export default class DynamoDBCrawlerIndexTableMigrationCommand implements yargs.
   builder(args: yargs.Argv) {
     return args
       .option('up', {
-        describe: 'Create a CrawlerIndex table in dynamodb',
+        describe: 'Create a CrawlerIndex table in command',
       })
       .option('down', {
-        describe: 'Remove CrawlerIndex table from dynamodb',
+        describe: 'Remove CrawlerIndex table from command',
       })
       .conflicts('up', 'down');
   }

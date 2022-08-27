@@ -2,19 +2,19 @@
 
 import yargs from 'yargs';
 
-import DynamoDBCrawlerIndexTableMigrationCommand from '@/dynamodb/DynamoDBCrawlerIndexTableMigrationCommand';
-import DynamoDBCrawlerIndexTableSeederCommand from '@/dynamodb/DynamoDBCrawlerIndexTableSeederCommand';
-import DynamoDBMediaTableMigrationCommand from '@/dynamodb/DynamoDBMediaTableMigrationCommand';
-import DynamoDBMediaTableSeederCommand from '@/dynamodb/DynamoDBMediaTableSeederCommand';
-import DynamoDBNewsfeedTableMigrationCommand from '@/dynamodb/DynamoDBNewsfeedTableMigrationCommand';
+import DynamoDBCrawlerIndexTableMigrationCommand from '@/command/DynamoDBCrawlerIndexTableMigrationCommand';
+import DynamoDBCrawlerIndexTableSeederCommand from '@/command/DynamoDBCrawlerIndexTableSeederCommand';
+import DynamoDBMediaTableMigrationCommand from '@/command/DynamoDBMediaTableMigrationCommand';
+import DynamoDBMediaTableSeederCommand from '@/command/DynamoDBMediaTableSeederCommand';
+import DynamoDBNewsfeedTableMigrationCommand from '@/command/DynamoDBNewsfeedTableMigrationCommand';
 
 yargs
   .locale('en')
   .usage('Usage: $0 <command> [options]')
   .command(new DynamoDBMediaTableMigrationCommand())
   .command(new DynamoDBNewsfeedTableMigrationCommand())
-  .command(new DynamoDBMediaTableSeederCommand())
   .command(new DynamoDBCrawlerIndexTableMigrationCommand())
+  .command(new DynamoDBMediaTableSeederCommand())
   .command(new DynamoDBCrawlerIndexTableSeederCommand())
   .recommendCommands()
   .demandCommand(1)

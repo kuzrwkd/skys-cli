@@ -10,10 +10,10 @@ export default class DynamoDBMediaTableMigrationCommand implements yargs.Command
   builder(args: yargs.Argv) {
     return args
       .option('up', {
-        describe: 'Create a Media table in dynamodb',
+        describe: 'Create a Media table in command',
       })
       .option('down', {
-        describe: 'Remove Media table from dynamodb',
+        describe: 'Remove Media table from command',
       })
       .conflicts('up', 'down');
   }
