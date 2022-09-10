@@ -10,14 +10,14 @@ set -eux
 cd /var/www
 
 npm cache clean -f
-npm install
-npm run build
-npm link
-chmod +x /usr/local/lib/node_modules/@kuzrwkd/skys-cli
+#npm install
+#npm run build
+#npm link
+#chmod +x /usr/local/lib/node_modules/@kuzrwkd/skys-cli
 
-/usr/local/bin/wait-for-it.sh "$DATABASE_HOST":"$DATABASE_PORT" --timeout=30 --strict -- echo "=== dynamodb connected! ==="
-
-skys migration:dynamodb:media --up && skys migration:dynamodb:newsfeed --up && skys migration:dynamodb:newsfeedIndex --up
-skys seeder:dynamodb:media && skys seeder:dynamodb:newsfeedIndex
+#/usr/local/bin/wait-for-it.sh "$DATABASE_HOST":"$DATABASE_PORT" --timeout=30 --strict -- echo "=== dynamodb connected! ==="
+#
+#skys migration:dynamodb:media --up && skys migration:dynamodb:newsfeed --up && skys migration:dynamodb:newsfeedIndex --up
+#skys seeder:dynamodb:media && skys seeder:dynamodb:newsfeedIndex
 
 while true; do sleep 86400; done

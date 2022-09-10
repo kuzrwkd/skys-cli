@@ -28,7 +28,6 @@ COPY . /var/www/
 
 RUN chmod +x /usr/local/bin/entrypoint.sh \
     && chmod +x /usr/local/bin/wait-for-it.sh \
-    && npm install -g npm \
-    && npm install -g npm-check-updates
+    && npm install -g npm
 
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
